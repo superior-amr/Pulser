@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pulser — Trusted Cardiac Health Guide</title>
+<style>
+  :root {
+    --bg-base: #eef4fa;
+    --bg-base-deep: #e3ecf5;
+    --surface: #ffffff;
+    --panel: #f4f9fd;
+    --border: #d5e1ee;
+    --border-strong: #aec6dc;
+    --ink: #15233a;
+    --muted: #56708c;
+    --accent: #2f6fb0;
+    --accent-strong: #245d99;
+    --accent-soft: rgba(47, 111, 176, 0.1);
+    --accent-light: #9cc8ee;
+    --accent-faint: rgba(47, 111, 176, 0.06);
+    --green: #12945f;
+    --amber: #b9822a;
+    --red: #b3332a;
+    --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+    --shadow-sm: 0 1px 2px rgba(21, 35, 58, 0.06), 0 2px 6px rgba(21, 35, 58, 0.05);
+    --shadow-md: 0 10px 28px rgba(21, 35, 58, 0.1), 0 2px 6px rgba(21, 35, 58, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.55;
+    background: linear-gradient(160deg, var(--bg-base) 0%, var(--bg-base) 45%, var(--bg-base-deep) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  /* Animated perspective grid — calm light blue, fades at the edges. */
+  .grid-background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    overflow: hidden;
+    background-image:
+      linear-gradient(rgba(47, 111, 176, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(47, 111, 176, 0.08) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(ellipse 90% 74% at 50% 0%, #000 22%, transparent 78%);
+    mask-image: radial-gradient(ellipse 90% 74% at 50% 0%, #000 22%, transparent 78%);
+    animation: grid-scroll 32s linear infinite;
+  }
+
+  @keyframes grid-scroll { to { background-position: 46px 46px; } }
+
+  /* Soft blue aurora blobs above the grid. */
+  .aurora {
+    position: fixed;
+    inset: -30%;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(38% 32% at 24% 18%, rgba(47, 111, 176, 0.16), transparent 70%),
+      radial-gradient(30% 26% at 76% 12%, rgba(120, 180, 235, 0.15), transparent 72%),
+      radial-gradient(34% 30% at 64% 78%, rgba(158, 203, 238, 0.12), transparent 70%),
+      radial-gradient(26% 24% at 12% 82%, rgba(120, 180, 235, 0.13), transparent 72%);
+    filter: blur(6px);
+    animation: aurora-drift 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes aurora-drift {
+    0% { transform: translate3d(-1.5%, -1%, 0) rotate(0deg); }
+    50% { transform: translate3d(1.2%, 0.8%, 0) rotate(1.2deg); }
+    100% { transform: translate3d(-1%, 1.4%, 0) rotate(-1deg); }
+  }
+
+  .app {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 40px 20px 96px;
+  }
+
+  /* ---------------------------------------------------------------- header */
+  .header { position: relative; margin-bottom: 26px; }
+  .header-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 4px; position: relative; z-index: 1; }
+  .header-mark {
+    display: grid; place-items: center;
+    width: 44px; height: 44px; border-radius: 12px;
+    background: linear-gradient(145deg, var(--accent), var(--accent-strong));
+    color: #fff; font-size: 1.5rem; font-weight: 800;
+    box-shadow: var(--shadow-sm); flex: none;
+  }
+  .header-title { margin: 0; font-size: 1.55rem; letter-spacing: -0.01em; display: flex; align-items: center; gap: 10px; }
+  .gradient-title {
+    background: linear-gradient(115deg, #142438 0%, #1c3a5e 45%, #274d79 72%, #142438 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .header-dot {
+    width: 9px; height: 9px; border-radius: 999px; background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(47, 111, 176, 0.45);
+    animation: header-pulse 2.6s ease-in-out infinite;
+  }
+  @keyframes header-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(47, 111, 176, 0.35); }
+    50% { box-shadow: 0 0 0 7px rgba(47, 111, 176, 0); }
+  }
+  .subtitle { margin: 0 0 14px; color: var(--muted); font-size: 0.95rem; position: relative; z-index: 1; }
+  .guard-note {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.78rem; color: var(--muted);
+    background: var(--accent-faint); border: 1px solid var(--accent-soft);
+    border-radius: 999px; padding: 5px 12px;
+    position: relative; z-index: 1;
+  }
+
+  /* ---- Aceternity-style sparkle beam behind the header ---- */
+  .hero-beam {
+    position: absolute;
+    left: -70px; right: -70px; top: -80px; height: 360px;
+    z-index: 0; pointer-events: none; overflow: hidden;
+    -webkit-mask-image: radial-gradient(720px 280px at 30% 6%, #000 18%, transparent 82%);
+    mask-image: radial-gradient(720px 280px at 30% 6%, #000 18%, transparent 82%);
+  }
+  #sparkles-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .beam-line {
+    position: absolute; left: 30%; transform: translateX(-50%);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(47, 111, 176, 0.95), transparent);
+  }
+  .beam-line-1 { top: 148px; width: 300px; filter: blur(1px); }
+  .beam-line-2 { top: 151px; width: 300px; opacity: 0.55; }
+  .beam-line-3 { top: 146px; width: 140px; height: 4px; filter: blur(3px); opacity: 0.85; }
+
+  /* ---- notification bell (visual placeholder for a future feature) ---- */
+  .bell-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 50;
+    display: grid; place-items: center;
+    width: 44px; height: 44px;
+    background: var(--surface); color: #c15858;
+    border: 1px solid rgba(193, 88, 88, 0.32); border-radius: 999px;
+    box-shadow: var(--shadow-sm);
+    cursor: default; padding: 0;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .bell-btn:hover:not(:disabled) {
+    background: rgba(193, 88, 88, 0.05); color: #ad4a4a;
+    border-color: rgba(193, 88, 88, 0.5);
+    box-shadow: var(--shadow-sm); transform: translateY(-1px);
+  }
+  .bell-dot {
+    position: absolute; top: 10px; right: 11px;
+    width: 8px; height: 8px; border-radius: 999px;
+    background: linear-gradient(145deg, #e08585, #c15858);
+    border: 2px solid var(--surface);
+  }
+
+  /* ------------------------------------------------------------ query field */
+  .query-box {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: var(--shadow-md);
+    transition: border-color 0.2s ease, box-shadow 0.25s ease;
+  }
+  .query-box textarea {
+    width: 100%;
+    resize: vertical;
+    line-height: 1.6;
+    background: var(--accent-faint);
+    color: var(--ink);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 0.98rem;
+    font-family: inherit;
+    box-shadow: inset 0 1px 3px rgba(21, 35, 58, 0.04);
+    transition: border-color 0.2s ease, box-shadow 0.25s ease, background 0.2s ease;
+  }
+  .query-box textarea::placeholder { color: var(--muted); opacity: 0.85; }
+  .query-box textarea:focus {
+    outline: none;
+    background: var(--surface);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft), 0 4px 16px var(--accent-faint);
+  }
+  .query-box::after {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: 0;
+    width: 0; height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent-light), var(--accent));
+    transform: translateX(-50%);
+    transition: width 0.28s ease;
+  }
+  .query-box:focus-within::after { width: calc(100% - 32px); }
+
+  .query-actions { display: flex; align-items: center; gap: 14px; margin-top: 12px; }
+  button {
+    background: var(--accent); color: #fff;
+    border: none; border-radius: 10px;
+    padding: 9px 22px; font-size: 0.95rem; font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.08s ease, box-shadow 0.15s ease;
+  }
+  button:hover:not(:disabled) { background: var(--accent-strong); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+  button:active:not(:disabled) { transform: translateY(0); }
+  button:disabled { opacity: 0.45; cursor: not-allowed; }
+  .hint { color: var(--muted); font-size: 0.8rem; }
+
+  /* ------------------------------------------------------------- loader */
+  .status-card {
+    margin-top: 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 20px 18px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+  }
+  .gen-loader { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 6px 0 2px; }
+  .gen-loader-letters { display: inline-flex; gap: 1px; }
+  .gen-letter {
+    font-size: 1.35rem; font-weight: 800; letter-spacing: 2px;
+    color: var(--accent-light); opacity: 0.6;
+    animation: letter-bounce 1.15s ease-in-out infinite;
+  }
+  @keyframes letter-bounce {
+    0%, 100% { transform: translateY(0); color: var(--accent-light); opacity: 0.55; }
+    45% { transform: translateY(-8px); color: var(--accent); opacity: 1; }
+  }
+  .gen-ring {
+    width: 20px; height: 20px; flex: none;
+    border-radius: 50%;
+    border: 2px solid var(--border-strong);
+    border-top-color: var(--accent);
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .load-bar { max-width: 320px; margin: 16px auto 0; }
+  .load-bar-text {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 9px;
+  }
+  .load-bar-text .dot { color: var(--accent); animation: dot-pulse 1.2s ease-in-out infinite; }
+  .load-bar-text .dot:nth-child(2) { animation-delay: 0.15s; }
+  .load-bar-text .dot:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes dot-pulse { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+
+  .load-bar-track {
+    height: 10px; border-radius: 999px;
+    background: var(--accent-faint); border: 1px solid var(--accent-soft);
+    overflow: hidden; position: relative;
+  }
+  .load-bar-fill {
+    position: absolute; inset: 0; width: 100%;
+    background: linear-gradient(90deg, var(--accent-light), var(--accent));
+    border-radius: 999px;
+    animation: bar-cross 2.1s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+  }
+  @keyframes bar-cross {
+    0% { transform: translateX(-110%) scaleX(0.45); }
+    50% { transform: translateX(0) scaleX(0.9); }
+    100% { transform: translateX(110%) scaleX(0.45); }
+  }
+  .white-bars-container { position: absolute; inset: 0; display: flex; align-items: center; gap: 4px; padding: 0 7px; opacity: 0.45; }
+  .white-bar { flex: 1; height: 4px; border-radius: 2px; background: #fff; }
+
+  .status-note { margin: 14px 0 0; color: var(--muted); font-size: 0.85rem; }
+
+  /* ------------------------------------------------------------- result */
+  .result {
+    margin-top: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 26px 28px;
+    box-shadow: var(--shadow-md);
+  }
+  .result-topline { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    border-radius: 999px; padding: 5px 14px;
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em;
+  }
+  .badge::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: currentColor; }
+  .confidence-high { background: rgba(18, 148, 95, 0.09); color: var(--green); border: 1px solid rgba(18, 148, 95, 0.5); }
+  .confidence-medium { background: rgba(185, 130, 42, 0.09); color: var(--amber); border: 1px solid rgba(185, 130, 42, 0.5); }
+  .confidence-low { background: rgba(196, 104, 42, 0.09); color: #c4682a; border: 1px solid rgba(196, 104, 42, 0.5); }
+  .confidence-insufficient { background: rgba(179, 51, 42, 0.09); color: var(--red); border: 1px solid rgba(179, 51, 42, 0.5); }
+  .muted { color: var(--muted); font-size: 0.8rem; }
+
+  .refusal {
+    border: 1px solid var(--red); border-radius: 12px;
+    padding: 16px 18px; background: rgba(179, 51, 42, 0.06);
+  }
+  .refusal strong { color: var(--red); font-size: 0.95rem; }
+  .refusal p { margin: 8px 0 0; font-family: var(--serif); line-height: 1.7; }
+
+  .recommendation {
+    font-family: var(--serif); font-size: 1.16rem; line-height: 1.75;
+    color: var(--ink); margin: 0 0 4px;
+    padding-left: 18px; border-left: 4px solid var(--accent);
+  }
+  .claim { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border); }
+  .claim-text { font-family: var(--serif); font-size: 1.05rem; line-height: 1.65; margin: 0 0 8px; }
+  .claim-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+  .score { color: var(--muted); font-size: 0.78rem; }
+  .evidence { margin-top: 10px; }
+  .evidence p {
+    margin: 6px 0 0; padding-left: 14px; border-left: 2px solid var(--accent-soft);
+    color: var(--muted); font-size: 0.9rem; line-height: 1.6; font-style: italic;
+  }
+  .citations { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .citation-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 999px; padding: 4px 12px;
+    font-size: 0.8rem; color: var(--muted);
+  }
+  .citation-pill b { color: var(--accent-strong); }
+  .disclaimer { margin-top: 22px; font-size: 0.8rem; color: var(--muted); border-top: 1px solid var(--border); padding-top: 14px; font-style: italic; }
+
+  /* Three-stage result layout: Answer / Evidence / Citations */
+  .stage { margin-top: 22px; padding-top: 18px; border-top: 1px dashed var(--border); }
+  .stage-title {
+    font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--muted);
+    margin: 0 0 12px; display: flex; align-items: center; gap: 9px;
+  }
+  .stage-title .step {
+    display: inline-grid; place-items: center;
+    width: 20px; height: 20px; border-radius: 999px;
+    background: linear-gradient(145deg, var(--accent), var(--accent-strong));
+    color: #fff; font-size: 0.72rem; font-weight: 800;
+  }
+  .evidence-item { margin-top: 10px; padding-left: 14px; border-left: 2px solid var(--accent-soft); }
+  .evidence-item p { margin: 5px 0 0; color: var(--muted); font-size: 0.9rem; line-height: 1.6; font-style: italic; }
+  .page-badge {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    color: var(--accent-strong); background: var(--accent-faint);
+    border: 1px solid var(--accent-soft); border-radius: 999px; padding: 1px 9px;
+  }
+
+  .error-box {
+    margin-top: 22px;
+    background: rgba(179, 51, 42, 0.07); border: 1px solid var(--red);
+    border-radius: 10px; padding: 14px 16px;
+    color: var(--red); font-size: 0.9rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  }
+  .error-box strong { display: block; font-size: 0.95rem; }
+  .error-detail { margin: 4px 0 0; font-size: 0.82rem; opacity: 0.85; }
+  .error-box button {
+    flex: none;
+    background: var(--surface); color: var(--red);
+    border: 1px solid var(--red); padding: 7px 16px; font-size: 0.85rem;
+  }
+  .error-box button:hover:not(:disabled) { background: rgba(179, 51, 42, 0.06); box-shadow: none; }
+  .hidden { display: none; }
+
+  /* Follow-up questions */
+  .follow-up-list {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .follow-up-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px;
+    background: var(--accent-faint); border: 1px solid var(--accent-soft);
+    border-radius: 10px; cursor: pointer;
+    font-size: 0.92rem; color: var(--ink);
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
+  }
+  .follow-up-item::before {
+    content: "?"; display: inline-grid; place-items: center;
+    width: 22px; height: 22px; border-radius: 999px; flex: none;
+    background: var(--accent); color: #fff;
+    font-size: 0.75rem; font-weight: 800;
+  }
+  .follow-up-item:hover {
+    background: var(--accent-soft); border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  /* Suggested alternative */
+  .alternative-box {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px;
+    background: rgba(185, 130, 42, 0.06); border: 1px solid rgba(185, 130, 42, 0.35);
+    border-radius: 10px; cursor: pointer;
+    font-size: 0.95rem; color: var(--ink);
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
+  }
+  .alternative-box:hover {
+    background: rgba(185, 130, 42, 0.12); border-color: var(--amber);
+    transform: translateY(-1px);
+  }
+  .alternative-icon {
+    display: inline-grid; place-items: center;
+    width: 28px; height: 28px; border-radius: 999px; flex: none;
+    background: var(--amber); color: #fff;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+  <button class="bell-btn" type="button" aria-label="Notifications" title="Notifications — coming soon">
+    <span class="bell-dot" aria-hidden="true"></span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+      <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+    </svg>
+  </button>
+  <div class="grid-background" aria-hidden="true"></div>
+  <div class="aurora" aria-hidden="true"></div>
+
+  <div class="app">
+    <header class="header">
+      <div class="hero-beam" aria-hidden="true">
+        <canvas id="sparkles-canvas"></canvas>
+        <span class="beam-line beam-line-1"></span>
+        <span class="beam-line beam-line-2"></span>
+        <span class="beam-line beam-line-3"></span>
+      </div>
+      <div class="header-brand">
+        <span class="header-mark">♥</span>
+        <div>
+          <h1 class="header-title"><span class="gradient-title">Pulser</span> <span class="header-dot" aria-hidden="true"></span></h1>
+          <p class="subtitle">Clear answers from trusted cardiac guidelines — every claim cited, every number checked.</p>
+        </div>
+      </div>
+      <span class="guard-note">● Evidence-based · refuses unsupported or personal advice</span>
+    </header>
+
+    <section class="query-box">
+      <textarea id="question" rows="3"
+        placeholder="Ask a cardiac question, e.g. what is the maximum amount of sodium allowed per serving for a product labeled “Low sodium”?"></textarea>
+      <div class="query-actions">
+        <button id="ask-btn" type="button">Ask</button>
+        <span class="hint">Ctrl / ⌘ + Enter to submit</span>
+      </div>
+    </section>
+
+    <section id="status" class="status-card hidden" aria-live="polite">
+      <div class="gen-loader" role="status" aria-label="Generating">
+        <span class="gen-loader-letters" aria-hidden="true"></span>
+        <span class="gen-ring" aria-hidden="true"></span>
+      </div>
+      <div class="load-bar" aria-hidden="true">
+        <div class="load-bar-text">Loading<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="load-bar-track">
+          <div class="load-bar-fill">
+            <div class="white-bars-container">
+              <span class="white-bar"></span><span class="white-bar"></span><span class="white-bar"></span>
+              <span class="white-bar"></span><span class="white-bar"></span><span class="white-bar"></span>
+              <span class="white-bar"></span><span class="white-bar"></span><span class="white-bar"></span>
+              <span class="white-bar"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="status-note">Searching the guideline library and grounding the answer…</p>
+    </section>
+
+    <div id="error" class="error-box hidden"></div>
+    <section id="result" class="result hidden"></section>
+  </div>
+
+<script>
+  const GEN_WORD = "Generating";
+  const LEVEL_CLASS = {
+    "Strongly Supported": "confidence-high",
+    "Well Supported": "confidence-high",
+    "Weakly Supported": "confidence-medium",
+    "Unsupported": "confidence-low",
+    "Refused": "confidence-insufficient",
+  };
+
+  const qEl = document.getElementById("question");
+  const btn = document.getElementById("ask-btn");
+  const statusEl = document.getElementById("status");
+  const errorEl = document.getElementById("error");
+  const resultEl = document.getElementById("result");
+
+  // Build the "Generating" letter spans once.
+  const letters = document.querySelector(".gen-loader-letters");
+  GEN_WORD.split("").forEach((ch, i) => {
+    const s = document.createElement("span");
+    s.className = "gen-letter";
+    s.style.animationDelay = (i * 0.09) + "s";
+    s.textContent = ch;
+    letters.appendChild(s);
+  });
+
+  function esc(text) {
+    const div = document.createElement("div");
+    div.textContent = text == null ? "" : String(text);
+    return div.innerHTML;
+  }
+
+  function badge(level) {
+    const cls = LEVEL_CLASS[level] || "confidence-insufficient";
+    return `<span class="badge ${cls}">${esc(level || "Insufficient Evidence")}</span>`;
+  }
+
+  function showError(data, fallback) {
+    statusEl.classList.add("hidden");
+    const hint = (data && data.hint) || "Request failed.";
+    const detail = (data && data.error) || fallback || "Unknown error";
+    errorEl.innerHTML = `
+      <div>
+        <strong>${esc(hint)}</strong>
+        <p class="error-detail">${esc(detail)}</p>
+      </div>
+      <div class="error-actions">
+        <button type="button" id="retry-btn">Try again</button>
+      </div>`;
+    errorEl.classList.remove("hidden");
+    const retry = document.getElementById("retry-btn");
+    if (retry) retry.addEventListener("click", submit);
+  }
+
+  async function submit() {
+    const question = qEl.value.trim();
+    if (!question || btn.disabled) return;
+
+    btn.disabled = true;
+    errorEl.classList.add("hidden");
+    resultEl.classList.add("hidden");
+    statusEl.classList.remove("hidden");
+    resultEl.innerHTML = "";
+
+    try {
+      const res = await fetch("/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question }),
+      });
+      const data = await res.json();
+      if (!res.ok) { showError(data); return; }
+      statusEl.classList.add("hidden");
+      render(data);
+    } catch (e) {
+      showError(null, e.message || String(e));
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  function buildFollowUpHtml(followUps) {
+    if (!followUps || !followUps.length) return "";
+    const items = followUps.map((q) =>
+      `<li class="follow-up-item" data-question="${esc(q)}" title="Click to ask this question">${esc(q)}</li>`
+    ).join("");
+    return `
+      <section class="stage">
+        <h3 class="stage-title"><span class="step">+</span> Related Questions</h3>
+        <ul class="follow-up-list">${items}</ul>
+      </section>`;
+  }
+
+  function buildAlternativeHtml(alt) {
+    if (!alt) return "";
+    return `
+      <section class="stage">
+        <h3 class="stage-title"><span class="step">&gt;</span> Suggested Alternative</h3>
+        <div class="alternative-box" data-question="${esc(alt)}" title="Click to ask this question">
+          <span class="alternative-icon">&#9998;</span>
+          <span>${esc(alt)}</span>
+        </div>
+      </section>`;
+  }
+
+  function render(data) {
+    if (data.refused) {
+      const altHtml = buildAlternativeHtml(data.suggested_alternative);
+      const followUpHtml = buildFollowUpHtml(data.follow_up_questions);
+      resultEl.innerHTML = `
+        <div class="refusal">
+          <strong>Refused</strong>
+          <p>${esc(data.refusal_message || "No sufficiently supported answer was found in the guideline library.")}</p>
+        </div>
+        ${altHtml}
+        ${followUpHtml}
+        <p class="disclaimer">${esc(data.disclaimer)}</p>`;
+      resultEl.classList.remove("hidden");
+      resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      bindClickableQuestions();
+      return;
+    }
+
+    const claims = data.claims || [];
+
+    // Stage 1 — the answer.
+    const answerHtml = claims.length
+      ? claims.map((c) => `<p class="recommendation">${esc(c.text)}</p>`).join("")
+      : `<p class="muted">No supported claims were retained.</p>`;
+
+    // Stage 2 — evidence quotes (backend sends plain strings).
+    const evidenceItems = claims.flatMap((c) =>
+      (c.evidence || []).map((ev) => `
+        <div class="evidence-item">
+          <p>\u201c${esc(typeof ev === "string" ? ev : ev.text || "")}\u201d</p>
+        </div>`)
+    ).join("");
+
+    // Stage 3 — the citations.
+    const citationItems = claims.flatMap((c) =>
+      (c.citations || []).map((ct) => `<span class="citation-pill">${esc(typeof ct === "string" ? ct : ct.text || "")}</span>`)
+    ).join("");
+
+    const followUpHtml = buildFollowUpHtml(data.follow_up_questions);
+
+    resultEl.innerHTML = `
+      <div class="result-topline">
+        ${badge(data.overall_level)}
+        ${data.overall_score != null ? `<span class="score">overall ${Number(data.overall_score).toFixed(3)}</span>` : ""}
+      </div>
+
+      <section class="stage">
+        <h3 class="stage-title"><span class="step">1</span> Answer</h3>
+        ${answerHtml}
+      </section>
+
+      ${evidenceItems ? `<section class="stage">
+        <h3 class="stage-title"><span class="step">2</span> Evidence</h3>
+        ${evidenceItems}
+      </section>` : ""}
+
+      ${citationItems ? `<section class="stage">
+        <h3 class="stage-title"><span class="step">3</span> Citations</h3>
+        <div class="citations">${citationItems}</div>
+      </section>` : ""}
+
+      ${followUpHtml}
+
+      <p class="disclaimer">${esc(data.disclaimer)}</p>`;
+    resultEl.classList.remove("hidden");
+    resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    bindClickableQuestions();
+  }
+
+  function bindClickableQuestions() {
+    resultEl.querySelectorAll("[data-question]").forEach((el) => {
+      el.addEventListener("click", () => {
+        qEl.value = el.getAttribute("data-question");
+        submit();
+      });
+    });
+  }
+
+  btn.addEventListener("click", submit);
+  qEl.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) submit();
+  });
+
+  // Aceternity-style sparkle field behind the header (vanilla canvas).
+  function initSparkles(canvas) {
+    const ctx = canvas.getContext("2d");
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    let w = 0, h = 0, parts = [];
+
+    function resize() {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      w = Math.max(1, rect.width);
+      h = Math.max(1, rect.height);
+      canvas.width = Math.round(w * DPR);
+      canvas.height = Math.round(h * DPR);
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      const count = Math.max(40, Math.round((w * h) / 2600));
+      parts = Array.from({ length: count }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        size: 0.5 + Math.random() * 1.1,
+        vx: (Math.random() - 0.5) * 0.18,
+        vy: (Math.random() - 0.5) * 0.18,
+        phase: Math.random() * Math.PI * 2,
+        rate: 0.008 + Math.random() * 0.02,
+        bright: Math.random() < 0.18,
+      }));
+    }
+
+    function frame(t) {
+      ctx.clearRect(0, 0, w, h);
+      for (const p of parts) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < -4) p.x = w + 4; else if (p.x > w + 4) p.x = -4;
+        if (p.y < -4) p.y = h + 4; else if (p.y > h + 4) p.y = -4;
+        const twinkle = 0.5 + 0.5 * Math.sin(t * 0.001 * p.rate * 100 + p.phase);
+        const alpha = (p.bright ? 0.9 : 0.6) * twinkle;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.bright
+          ? `rgba(21, 60, 110, ${alpha})`
+          : `rgba(66, 138, 201, ${alpha})`;
+        ctx.fill();
+      }
+      requestAnimationFrame(frame);
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+    requestAnimationFrame(frame);
+  }
+  initSparkles(document.getElementById("sparkles-canvas"));
+</script>
+</body>
+</html>

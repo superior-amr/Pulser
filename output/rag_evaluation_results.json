@@ -1,0 +1,169 @@
+{
+  "generated_at_utc": "2026-08-22T19:27:16.975162+00:00",
+  "embedding_model": "BAAI/bge-base-en-v1.5",
+  "reranker_model": "BAAI/bge-reranker-base",
+  "retriever_config": {
+    "search_type": "similarity",
+    "k": 5,
+    "rerank_k": 10
+  },
+  "questions": [
+    {
+      "question": "What alternative medicines to clopidogrel exist and who can prescribe them?",
+      "keywords": [
+        "prasugrel",
+        "ticagrelor",
+        "clopidogrel",
+        "specialist"
+      ],
+      "results": [
+        {
+          "rank": 1,
+          "chunk_id": "his17_medicines_0817_a4_removed.pdf:You should understand::455",
+          "dense_score": 0.7488,
+          "rerank_score": 0.9525,
+          "source_file": "his17_medicines_0817_a4_removed.pdf",
+          "section_title": "You should understand:",
+          "page_numbers": [
+            17
+          ],
+          "text": "While aspirin can be used to treat most people with known coronary at preventing strokes in people who have been diagnosed with atrial fibrillation. Clopidogrel Clopidogrel is another antiplatelet medicine. It’s sometimes given alongside aspirin, but usually only for a set period of time. It’s useful for people with unstable angina, or for those who have recently had a coronary angioplasty with stenting (a procedure that helps to keep a narrowed coronary artery open). Sometimes, clopidogrel is prescribed to people who can’t tolerate aspirin. There are other medicines in the same group as clopidogrel – prasugrel and ticagrelor – that offer similar benefits . T hese need to be prescribed by a specialist. Prasugrel Prasugrel is a platelet inhibitor. This means it stops platelets clumping together and forming a blood clot. You may be given prasugrel along with aspirin, and instead of clopidogrel. Ticagrelor Ticagrelor is also a platelet inhibitor.",
+          "expanded_text": "While aspirin can be used to treat most people with known coronary at preventing strokes in people who have been diagnosed with atrial fibrillation. Clopidogrel Clopidogrel is another antiplatelet medicine. It’s sometimes given alongside aspirin, but usually only for a set period of time. It’s useful for people with unstable angina, or for those who have recently had a coronary angioplasty with stenting (a procedure that helps to keep a narrowed coronary artery open). Sometimes, clopidogrel is prescribed to people who can’t tolerate aspirin. There are other medicines in the same group as clopidogrel – prasugrel and ticagrelor – that offer similar benefits . T hese need to be prescribed by a specialist. Prasugrel Prasugrel is a platelet inhibitor. This means it stops platelets clumping together and forming a blood clot. You may be given prasugrel along with aspirin, and instead of clopidogrel. Ticagrelor Ticagrelor is also a platelet inhibitor."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "his17_medicines_0817_a4_removed.pdf:You should understand::456",
+          "dense_score": 0.6537,
+          "rerank_score": 0.6058,
+          "source_file": "his17_medicines_0817_a4_removed.pdf",
+          "section_title": "You should understand:",
+          "page_numbers": [
+            17,
+            18
+          ],
+          "text": "You may be given this alongside aspirin, instead of clopidogrel or prasugrel. 38 39 Antiplatelet medicines can cause stomach aches, nausea and vomiting. To help prevent these side effects, always take the medicine after a meal. More seriously, antiplatelet medicines can lead to, or worsen, bleeding from the stomach. To help prevent this, your doctor may also prescribe a medicine to reduce the acid your stomach produces. This makes it less likely that the antiplatelet medicine will cause irritation.",
+          "expanded_text": "You may be given this alongside aspirin, instead of clopidogrel or prasugrel. 38 39 Antiplatelet medicines can cause stomach aches, nausea and vomiting. To help prevent these side effects, always take the medicine after a meal. More seriously, antiplatelet medicines can lead to, or worsen, bleeding from the stomach. To help prevent this, your doctor may also prescribe a medicine to reduce the acid your stomach produces. This makes it less likely that the antiplatelet medicine will cause irritation."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "his17_medicines_0817_a4_removed.pdf:You should understand::453",
+          "dense_score": 0.7019,
+          "rerank_score": 0.2774,
+          "source_file": "his17_medicines_0817_a4_removed.pdf",
+          "section_title": "You should understand:",
+          "page_numbers": [
+            16,
+            17
+          ],
+          "text": "I’ve felt much better since and haven’t had another spasm. Taking the right amount of medicine – as well as eating healthy, stopping smoking and reducing my stress – has helped me feel better, both emotionally and physically.” 36 37 Antiplatelet medicines Examples of antiplatelet medicine include aspirin, clopidogrel, prasugrel and ticagrelor. Antiplatelet medicines reduce the risk of clots forming. Aspirin Aspirin helps to prevent the blood from clotting.",
+          "expanded_text": "I’ve felt much better since and haven’t had another spasm. Taking the right amount of medicine – as well as eating healthy, stopping smoking and reducing my stress – has helped me feel better, both emotionally and physically.” 36 37 Antiplatelet medicines Examples of antiplatelet medicine include aspirin, clopidogrel, prasugrel and ticagrelor. Antiplatelet medicines reduce the risk of clots forming. Aspirin Aspirin helps to prevent the blood from clotting."
+        },
+        {
+          "rank": 4,
+          "chunk_id": "his17_medicines_0817_a4_removed.pdf:You should understand::441",
+          "dense_score": 0.6393,
+          "rerank_score": 0.0529,
+          "source_file": "his17_medicines_0817_a4_removed.pdf",
+          "section_title": "You should understand:",
+          "page_numbers": [
+            10,
+            11
+          ],
+          "text": "I live life secure in the knowledge that my on without worrying about it on a day to day basis.” 24 25 Anticoagulant medicines Examples of anticoagulant medicines include warfarin and apixaban. Blood clots are made up of platelets – tiny blood cells clumped together – and a protein called fibrin. If a clot isn’t treated, it can travel to the brain and cause a stroke, or to the lung and block a main artery (pulmonary embolism). Anticoagulants prevent harmful blood clots from forming. They’re most commonly prescribed to as atrial fibrillation, or for those who have an artificial increase the risk of having a stroke. Anticoagulants are particularly valuable for treating clots that have already formed, such as those that develop in the veins of the legs (deep vein thrombosis, or DVT). Warfarin Warfarin is the most common oral anticoagulant prescribed for long-term prevention of blood clotting.",
+          "expanded_text": "I live life secure in the knowledge that my on without worrying about it on a day to day basis.” 24 25 Anticoagulant medicines Examples of anticoagulant medicines include warfarin and apixaban. Blood clots are made up of platelets – tiny blood cells clumped together – and a protein called fibrin. If a clot isn’t treated, it can travel to the brain and cause a stroke, or to the lung and block a main artery (pulmonary embolism). Anticoagulants prevent harmful blood clots from forming. They’re most commonly prescribed to as atrial fibrillation, or for those who have an artificial increase the risk of having a stroke. Anticoagulants are particularly valuable for treating clots that have already formed, such as those that develop in the veins of the legs (deep vein thrombosis, or DVT). Warfarin Warfarin is the most common oral anticoagulant prescribed for long-term prevention of blood clotting."
+        },
+        {
+          "rank": 5,
+          "chunk_id": "cureus-0016-00000054264.pdf:Risk factors:386",
+          "dense_score": 0.6525,
+          "rerank_score": 0.0084,
+          "source_file": "cureus-0016-00000054264.pdf",
+          "section_title": "Risk factors",
+          "page_numbers": [
+            9
+          ],
+          "text": "This could be partly due to significantly lower levels of coronary artery calcium in women . Prescription of Medicines to Women Six medicines/medicine classes were reported: antihypertensive, antiplatelets (including aspirin), betablockers and lipid-lowering agents (including statins), oral anticoagulants, and unspecified antianginal drugs (Table ).",
+          "expanded_text": "This could be partly due to significantly lower levels of coronary artery calcium in women . Prescription of Medicines to Women Six medicines/medicine classes were reported: antihypertensive, antiplatelets (including aspirin), betablockers and lipid-lowering agents (including statins), oral anticoagulants, and unspecified antianginal drugs (Table )."
+        }
+      ]
+    },
+    {
+      "question": "How does prasugrel work as an antiplatelet medicine?",
+      "keywords": [
+        "prasugrel",
+        "platelet inhibitor",
+        "clumping",
+        "blood clot"
+      ],
+      "results": [
+        {
+          "rank": 1,
+          "chunk_id": "his17_medicines_0817_a4_removed.pdf:You should understand::455",
+          "dense_score": 0.7747,
+          "rerank_score": 0.8995,
+          "source_file": "his17_medicines_0817_a4_removed.pdf",
+          "section_title": "You should understand:",
+          "page_numbers": [
+            17
+          ],
+          "text": "While aspirin can be used to treat most people with known coronary at preventing strokes in people who have been diagnosed with atrial fibrillation. Clopidogrel Clopidogrel is another antiplatelet medicine. It’s sometimes given alongside aspirin, but usually only for a set period of time. It’s useful for people with unstable angina, or for those who have recently had a coronary angioplasty with stenting (a procedure that helps to keep a narrowed coronary artery open). Sometimes, clopidogrel is prescribed to people who can’t tolerate aspirin. There are other medicines in the same group as clopidogrel – prasugrel and ticagrelor – that offer similar benefits . T hese need to be prescribed by a specialist. Prasugrel Prasugrel is a platelet inhibitor. This means it stops platelets clumping together and forming a blood clot. You may be given prasugrel along with aspirin, and instead of clopidogrel. Ticagrelor Ticagrelor is also a platelet inhibitor.",
+          "expanded_text": "While aspirin can be used to treat most people with known coronary at preventing strokes in people who have been diagnosed with atrial fibrillation. Clopidogrel Clopidogrel is another antiplatelet medicine. It’s sometimes given alongside aspirin, but usually only for a set period of time. It’s useful for people with unstable angina, or for those who have recently had a coronary angioplasty with stenting (a procedure that helps to keep a narrowed coronary artery open). Sometimes, clopidogrel is prescribed to people who can’t tolerate aspirin. There are other medicines in the same group as clopidogrel – prasugrel and ticagrelor – that offer similar benefits . T hese need to be prescribed by a specialist. Prasugrel Prasugrel is a platelet inhibitor. This means it stops platelets clumping together and forming a blood clot. You may be given prasugrel along with aspirin, and instead of clopidogrel. Ticagrelor Ticagrelor is also a platelet inhibitor."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "his17_medicines_0817_a4_removed.pdf:You should understand::453",
+          "dense_score": 0.7347,
+          "rerank_score": 0.7503,
+          "source_file": "his17_medicines_0817_a4_removed.pdf",
+          "section_title": "You should understand:",
+          "page_numbers": [
+            16,
+            17
+          ],
+          "text": "I’ve felt much better since and haven’t had another spasm. Taking the right amount of medicine – as well as eating healthy, stopping smoking and reducing my stress – has helped me feel better, both emotionally and physically.” 36 37 Antiplatelet medicines Examples of antiplatelet medicine include aspirin, clopidogrel, prasugrel and ticagrelor. Antiplatelet medicines reduce the risk of clots forming. Aspirin Aspirin helps to prevent the blood from clotting.",
+          "expanded_text": "I’ve felt much better since and haven’t had another spasm. Taking the right amount of medicine – as well as eating healthy, stopping smoking and reducing my stress – has helped me feel better, both emotionally and physically.” 36 37 Antiplatelet medicines Examples of antiplatelet medicine include aspirin, clopidogrel, prasugrel and ticagrelor. Antiplatelet medicines reduce the risk of clots forming. Aspirin Aspirin helps to prevent the blood from clotting."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "his17_medicines_0817_a4_removed.pdf:You should understand::456",
+          "dense_score": 0.7459,
+          "rerank_score": 0.5104,
+          "source_file": "his17_medicines_0817_a4_removed.pdf",
+          "section_title": "You should understand:",
+          "page_numbers": [
+            17,
+            18
+          ],
+          "text": "You may be given this alongside aspirin, instead of clopidogrel or prasugrel. 38 39 Antiplatelet medicines can cause stomach aches, nausea and vomiting. To help prevent these side effects, always take the medicine after a meal. More seriously, antiplatelet medicines can lead to, or worsen, bleeding from the stomach. To help prevent this, your doctor may also prescribe a medicine to reduce the acid your stomach produces. This makes it less likely that the antiplatelet medicine will cause irritation.",
+          "expanded_text": "You may be given this alongside aspirin, instead of clopidogrel or prasugrel. 38 39 Antiplatelet medicines can cause stomach aches, nausea and vomiting. To help prevent these side effects, always take the medicine after a meal. More seriously, antiplatelet medicines can lead to, or worsen, bleeding from the stomach. To help prevent this, your doctor may also prescribe a medicine to reduce the acid your stomach produces. This makes it less likely that the antiplatelet medicine will cause irritation."
+        },
+        {
+          "rank": 4,
+          "chunk_id": "his17_medicines_0817_a4_removed.pdf:You should understand::454",
+          "dense_score": 0.6995,
+          "rerank_score": 0.1109,
+          "source_file": "his17_medicines_0817_a4_removed.pdf",
+          "section_title": "You should understand:",
+          "page_numbers": [
+            17
+          ],
+          "text": "It achieves this by reducing the ‘stickiness’ of platelets – the small blood cells that can clump together t o f orm a clot. You’ll need to take a smaller dose for this effect than you’d need to relieve a headache. Aspirin is also useful for people with angina, and helps to prevent blood clotting in the grafts used in coronary artery bypass surgery.",
+          "expanded_text": "It achieves this by reducing the ‘stickiness’ of platelets – the small blood cells that can clump together t o f orm a clot. You’ll need to take a smaller dose for this effect than you’d need to relieve a headache. Aspirin is also useful for people with angina, and helps to prevent blood clotting in the grafts used in coronary artery bypass surgery."
+        },
+        {
+          "rank": 5,
+          "chunk_id": "cureus-0016-00000054264.pdf:Risk factors:387",
+          "dense_score": 0.6794,
+          "rerank_score": 0.0226,
+          "source_file": "cureus-0016-00000054264.pdf",
+          "section_title": "Risk factors",
+          "page_numbers": [
+            9
+          ],
+          "text": "It is noteworthy to mention that aspirin was often reported separately from the remaining antiplatelets, and statins were reported separately in studies from the remaining lipid-lowering agents. Prescribed Medication(s) Antiplatelet (%) Aspirin (%) Lipid-lowering agents (%) Statin (%) β-Blocker (%) Oral anticoagulant Antihypertensive Men Women Men Women Men Women Men Women Men Women Men Women Men Women 84* 76* 81* 73* 53* 47* 51* 45* - - - - 57.4* 53.4* 7.9 7.6 69.1 67.5 69.1 67.5 78.1* 80.2* 7.9 7.6 78.1 80.2 46.02* 32.08* 46.02* 32.08* - - 79.4* 61.2* 52.3* 41.1* - - 34.8 30.1 Leening et al., 2018 - - - - - - 8.2 9.9 26.5 - - 26.5 Mariani et al., 2013 71.9 64.6 95.1 94.3 - - 89.6* 84.7* 86.8* 81.2* - - 9.8 12.4 Millett et al., 2018 - - - - 14.2 8.8 - - - - - - 15.6 12.3 Nørgaard et al., 2015 - - - - 35.9 32.3 - - - - - - 37.7 Peters et al., 2018 61.7* 54.5* - - 10.7* 9.2* 14* 12* 81.2 79.5 - - - - Rachamin et al.,",
+          "expanded_text": "It is noteworthy to mention that aspirin was often reported separately from the remaining antiplatelets, and statins were reported separately in studies from the remaining lipid-lowering agents. Prescribed Medication(s) Antiplatelet (%) Aspirin (%) Lipid-lowering agents (%) Statin (%) β-Blocker (%) Oral anticoagulant Antihypertensive Men Women Men Women Men Women Men Women Men Women Men Women Men Women 84* 76* 81* 73* 53* 47* 51* 45* - - - - 57.4* 53.4* 7.9 7.6 69.1 67.5 69.1 67.5 78.1* 80.2* 7.9 7.6 78.1 80.2 46.02* 32.08* 46.02* 32.08* - - 79.4* 61.2* 52.3* 41.1* - - 34.8 30.1 Leening et al., 2018 - - - - - - 8.2 9.9 26.5 - - 26.5 Mariani et al., 2013 71.9 64.6 95.1 94.3 - - 89.6* 84.7* 86.8* 81.2* - - 9.8 12.4 Millett et al., 2018 - - - - 14.2 8.8 - - - - - - 15.6 12.3 Nørgaard et al., 2015 - - - - 35.9 32.3 - - - - - - 37.7 Peters et al., 2018 61.7* 54.5* - - 10.7* 9.2* 14* 12* 81.2 79.5 - - - - Rachamin et al.,"
+        }
+      ]
+    }
+  ]
+}

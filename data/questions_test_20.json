@@ -1,0 +1,82 @@
+[
+  {
+    "question": "What determines cardiac output and how is it measured by the Fick principle?",
+    "keywords": ["cardiac output", "Fick", "heart rate", "stroke volume", "oxygen consumption"]
+  },
+  {
+    "question": "What are the main classes of antiarrhythmic drugs and their mechanisms?",
+    "keywords": ["antiarrhythmic", "class I", "class II", "class III", "class IV", "mechanism"]
+  },
+  {
+    "question": "What is the mechanism of action of clopidogrel and when is it preferred over aspirin?",
+    "keywords": ["clopidogrel", "P2Y12", "aspirin", "antiplatelet", "dual antiplatelet therapy"]
+  },
+  {
+    "question": "What are the side effects of amiodarone?",
+    "keywords": ["amiodarone", "side effects", "thyroid", "pulmonary", "liver"]
+  },
+  {
+    "question": "What is tetralogy of Fallot and what are its four components?",
+    "keywords": ["tetralogy", "Fallot", "right ventricular hypertrophy", "overriding aorta", "ventricular septal defect"]
+  },
+  {
+    "question": "What is Eisenmenger syndrome?",
+    "keywords": ["Eisenmenger", "pulmonary hypertension", "shunt", "cyanosis", "reversal"]
+  },
+  {
+    "question": "What is the treatment of chronic heart failure and which drug classes are used?",
+    "keywords": ["heart failure", "ACE inhibitor", "beta blocker", "mineralocorticoid receptor antagonist", "SGLT2"]
+  },
+  {
+    "question": "What is the difference between prasugrel and ticagrelor?",
+    "keywords": ["prasugrel", "ticagrelor", "P2Y12 inhibitor", "reversible", "prodrug"]
+  },
+  {
+    "question": "What is coarctation of the aorta and how is it diagnosed?",
+    "keywords": ["coarctation", "aorta", "blood pressure", "radio-femoral delay", "notching"]
+  },
+  {
+    "question": "What causes dilated cardiomyopathy?",
+    "keywords": ["dilated cardiomyopathy", "Coxsackie", "alcohol", "doxorubicin", "viral"]
+  },
+  {
+    "question": "Why are beta blockers contraindicated in Wolff-Parkinson-White syndrome?",
+    "keywords": ["WPW", "Wolff-Parkinson-White", "accessory pathway", "AV node", "beta blocker", "pre-excitation"]
+  },
+  {
+    "question": "What is cardiovascular-kidney-metabolic syndrome?",
+    "keywords": ["cardiovascular-kidney-metabolic", "CKM", "kidney", "metabolic", "syndrome"]
+  },
+  {
+    "question": "What is the role of ezetimibe in lipid lowering?",
+    "keywords": ["ezetimibe", "NPC1L1", "cholesterol", "absorption", "statin"]
+  },
+  {
+    "question": "What is the difference between warfarin and NOACs such as rivaroxaban?",
+    "keywords": ["warfarin", "NOAC", "rivaroxaban", "INR", "anticoagulant", "vitamin K"]
+  },
+  {
+    "question": "What are the signs that myocardial infarction in women is often diagnosed late?",
+    "keywords": ["women", "myocardial infarction", "delayed", "atypical", "gender bias"]
+  },
+  {
+    "question": "What is the best way to cure all cancers using gene therapy by 2027?",
+    "keywords": []
+  },
+  {
+    "question": "How many moons does Jupiter have and what is its orbital period?",
+    "keywords": []
+  },
+  {
+    "question": "What is the current stock price of Apple and should I buy it?",
+    "keywords": []
+  },
+  {
+    "question": "Give me a detailed recipe for Egyptian koshary with exact cooking temperatures.",
+    "keywords": []
+  },
+  {
+    "question": "Explain quantum entanglement and its applications in quantum computing in detail.",
+    "keywords": []
+  }
+]

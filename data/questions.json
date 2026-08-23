@@ -1,0 +1,202 @@
+[
+  {
+    "question": "What ECG pattern characterizes Brugada syndrome?",
+    "keywords": ["brugada", "pseudo-right bundle branch block", "ST elevations", "V1-V3"]
+  },
+  {
+    "question": "Which conduction abnormality on ECG indicates Wolff-Parkinson-White syndrome, and why must AV nodal blockers be avoided in it?",
+    "keywords": ["wolff-parkinson-white", "widened QRS", "shortened PR interval", "accessory pathway", "delta wave"]
+  },
+  {
+    "question": "What drug classes are recommended to block the accessory pathway in Wolff-Parkinson-White syndrome?",
+    "keywords": ["wolff-parkinson-white", "class IA", "class III", "flecainide", "procainamide", "amiodarone"]
+  },
+  {
+    "question": "What is the molecular mechanism by which ANP and BNP lower blood pressure in heart failure?",
+    "keywords": ["natriuretic peptide", "guanylate cyclase", "cyclic GMP", "cGMP"]
+  },
+  {
+    "question": "How does the timing of cardiac troponin I elevation help distinguish acute from old myocardial infarction?",
+    "keywords": ["troponin I", "rises", "peaks", "specific"]
+  },
+  {
+    "question": "Which ECG findings localize an anterior ST-elevation myocardial infarction?",
+    "keywords": ["STEMI", "ST elevation", "anterior", "V1", "V2", "V3", "V4"]
+  },
+  {
+    "question": "What is the first-line diagnostic modality for acute myocardial infarction within the first six hours?",
+    "keywords": ["ECG", "gold standard", "six hours"]
+  },
+  {
+    "question": "What cardiac event can torsades de pointes progress to without immediate treatment?",
+    "keywords": ["torsades", "ventricular fibrillation", "VF"]
+  },
+  {
+    "question": "Which ion channel mutation underlies congenital long QT syndrome?",
+    "keywords": ["long QT", "K channel", "potassium", "delayed rectifier"]
+  },
+  {
+    "question": "Name the classic causes of drug-induced long QT syndrome known by the mnemonic ABCDE.",
+    "keywords": ["long QT", "ABCDE", "antiarrhythmics", "macrolides", "antimalarials"]
+  },
+  {
+    "question": "Which of Beck's findings is characteristically seen on jugular venous assessment and heart sounds in cardiac tamponade?",
+    "keywords": ["tamponade", "jugular venous", "heart sounds", "distant", "muffled"]
+  },
+  {
+    "question": "In which pericardial condition is pulsus paradoxus characteristically seen, and in which is it absent?",
+    "keywords": ["pulsus paradoxus", "pericarditis", "tamponade", "absent"]
+  },
+  {
+    "question": "What are the three components of Beck's triad in cardiac tamponade?",
+    "keywords": ["Beck", "triad", "hypotension", "muffled heart sounds", "elevated jugular venous pressure"]
+  },
+  {
+    "question": "What is the pathophysiologic sequence in Eisenmenger syndrome?",
+    "keywords": ["Eisenmenger", "left-to-right", "pulmonary hypertension", "reversal", "right-to-left"]
+  },
+  {
+    "question": "Which congenital heart lesion makes systemic blood flow dependent on a patent ductus arteriosus?",
+    "keywords": ["ductus arteriosus", "severe aortic", "ductal-dependent", "coarctation"]
+  },
+  {
+    "question": "What drug is used to close a patent ductus arteriosus, and what maintains it open?",
+    "keywords": ["ductus arteriosus", "indomethacin", "prostaglandin E1"]
+  },
+  {
+    "question": "What does a mild pulmonary stenosis allow the ventricular septal defect to act as in tetralogy physiology?",
+    "keywords": ["pulmonary stenosis", "ventricular septal defect", "VSD", "left-to-right shunt", "tetralogy"]
+  },
+  {
+    "question": "What is the most common valve lesion in rheumatic heart disease, and which valve is affected most commonly?",
+    "keywords": ["rheumatic", "mitral valve", "most common", "stenosis"]
+  },
+  {
+    "question": "Which condition is the most common predisposing factor for infective endocarditis?",
+    "keywords": ["mitral valve prolapse", "most common", "predisposing", "endocarditis"]
+  },
+  {
+    "question": "What is the most common congenital heart disease?",
+    "keywords": ["ventricular septal defect", "most common", "congenital"]
+  },
+  {
+    "question": "Which syndromes are associated with a bicuspid aortic valve and coarctation of the aorta?",
+    "keywords": ["bicuspid", "coarctation", "Turner syndrome", "Marfan", "Down"]
+  },
+  {
+    "question": "Why is cardioversion indicated for acute atrial fibrillation in a patient with severe aortic stenosis?",
+    "keywords": ["cardioversion", "atrial fibrillation", "severe aortic stenosis", "acute"]
+  },
+  {
+    "question": "What complication can atrial fibrillation cause in the setting of mitral stenosis?",
+    "keywords": ["atrial fibrillation", "mitral stenosis", "thrombus", "embolization", "left atrium"]
+  },
+  {
+    "question": "What is the typical ECG presentation of atrial fibrillation?",
+    "keywords": ["atrial fibrillation", "absence of P waves", "irregularly irregular"]
+  },
+  {
+    "question": "What causes the a wave of the jugular venous pulse to be absent?",
+    "keywords": ["a wave", "absent", "atrial fibrillation", "atrial contraction"]
+  },
+  {
+    "question": "What is the mechanism of fatal ventricular fibrillation without immediate intervention?",
+    "keywords": ["ventricular fibrillation", "CPR", "defibrillation", "fatal"]
+  },
+  {
+    "question": "What syndrome results from an autoimmune reaction to myocardial neo-antigens after myocardial infarction?",
+    "keywords": ["Dressler", "autoimmune", "myocardial neo-antigens", "pericarditis"]
+  },
+  {
+    "question": "What is the most common cause of dilated cardiomyopathy of infectious origin?",
+    "keywords": ["dilated cardiomyopathy", "Coxsackie B", "myocarditis", "viral"]
+  },
+  {
+    "question": "Which vitamin deficiency causes wet beriberi and its cardiac phenotype?",
+    "keywords": ["thiamine", "wet beriberi", "dilated cardiomyopathy", "deficiency"]
+  },
+  {
+    "question": "Which chemotherapeutic drug is a classic cause of dilated cardiomyopathy?",
+    "keywords": ["doxorubicin", "dilated cardiomyopathy", "anthracycline", "cardiotoxicity"]
+  },
+  {
+    "question": "What is the underlying histologic hallmark of hypertrophic cardiomyopathy?",
+    "keywords": ["hypertrophic cardiomyopathy", "myocyte disarray", "hypertrophy", "asymmetric septal"]
+  },
+  {
+    "question": "Which infiltrative disorders are classic causes of restrictive cardiomyopathy?",
+    "keywords": ["amyloidosis", "restrictive", "transthyretin", "sarcoidosis"]
+  },
+  {
+    "question": "What is cardiovascular-kidney-metabolic syndrome and which conditions does it link?",
+    "keywords": ["cardiovascular-kidney-metabolic", "syndrome", "heart failure", "chronic kidney disease", "diabetes"]
+  },
+  {
+    "question": "What determines cardiac output by the Fick method?",
+    "keywords": ["Fick", "cardiac output", "oxygen consumption", "arteriovenous difference"]
+  },
+  {
+    "question": "What does chronic hypertension produce in the left ventricle, and through what mechanism?",
+    "keywords": ["chronic hypertension", "left ventricular hypertrophy", "concentric", "afterload"]
+  },
+  {
+    "question": "In which conditions is pulse pressure decreased?",
+    "keywords": ["pulse pressure", "decreased", "aortic stenosis", "cardiogenic shock", "tamponade", "heart failure"]
+  },
+  {
+    "question": "Which region of the heart is most prone to ischemia and infarction and why?",
+    "keywords": ["subendocardium", "ischemia", "highest pressures", "vulnerable"]
+  },
+  {
+    "question": "What is the treatment rationale for using organic nitrates in severe hypertension with heart failure?",
+    "keywords": ["nitrates", "severe hypertension", "heart failure", "vasodilator", "preload"]
+  },
+  {
+    "question": "What phenomenon causes loss of nitrate efficacy during continuous industrial exposure?",
+    "keywords": ["tolerance", "nitrate", "Monday disease", "vasodilating"]
+  },
+  {
+    "question": "Which drug is a direct arteriolar vasodilator used for severe refractory hypertension?",
+    "keywords": ["minoxidil", "severe hypertension", "vasodilator"]
+  },
+  {
+    "question": "What are the four classes of medications used to treat angina?",
+    "keywords": ["angina", "antiplatelet", "beta-blockers", "nitrates", "statins"]
+  },
+  {
+    "question": "Which patients are anticoagulant medicines particularly indicated for?",
+    "keywords": ["anticoagulant", "heart valve disease", "atrial fibrillation", "thrombus", "warfarin"]
+  },
+  {
+    "question": "What platelet inhibitor medicines are listed for acute coronary syndromes alongside aspirin and clopidogrel?",
+    "keywords": ["prasugrel", "ticagrelor", "clopidogrel", "aspirin", "platelet"]
+  },
+  {
+    "question": "What is the most common oral anticoagulant and what class of newer agents has supplemented it?",
+    "keywords": ["warfarin", "most common", "anticoagulant", "NOACs", "apixaban"]
+  },
+  {
+    "question": "Which antiarrhythmic drug can cause photosensitivity of the skin?",
+    "keywords": ["amiodarone", "skin", "sensitive", "light", "photosensitivity"]
+  },
+  {
+    "question": "When is dronedarone indicated relative to amiodarone?",
+    "keywords": ["dronedarone", "amiodarone", "similar", "other medicines", "failed"]
+  },
+  {
+    "question": "Which medicines are used for heart failure alongside ACE inhibitors, beta-blockers, and diuretics?",
+    "keywords": ["heart failure", "ACE inhibitors", "beta-blockers", "diuretics", "ARNI", "sacubitril", "valsartan", "MRA", "spironolactone", "eplerenone", "SGLT2"]
+  },
+  {
+    "question": "What do ezetimibe and fibrates prevent in cholesterol management?",
+    "keywords": ["ezetimibe", "fibrates", "intestinal", "absorption", "cholesterol"]
+  },
+  {
+    "question": "Why do women with acute myocardial infarction experience delayed diagnosis compared with men?",
+    "keywords": ["women", "atypical symptoms", "abdominal pain", "dyspnoea", "nausea", "misdiagnosed", "anxiety"]
+  },
+  {
+    "question": "Which cardiovascular interventions are women statistically less likely to receive despite having disease?",
+    "keywords": ["women", "fewer", "diagnostic tests", "coronary angiography", "coronary intervention"]
+  }
+]

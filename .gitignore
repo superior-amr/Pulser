@@ -1,0 +1,27 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment secrets
+.env
+
+# ChromaDB cache (not used at runtime — full_code.py uses numpy retriever)
+cache/chroma/
+
+# Test logs
+qa_logs/
+
+# PDF source data (chunks already built)
+data/*.pdf
