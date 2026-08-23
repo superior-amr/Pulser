@@ -2492,9 +2492,9 @@ def build_retrieval_stack(cfg: AppConfig, chunks: Optional[List[ProcessedChunk]]
     cache_dir, output_dir = Path(cfg.paths.cache_dir), Path(cfg.paths.output_dir)
     if chunks is None: chunks = ProcessedChunk.load_all(output_dir / cfg.paths.chunks_json)
     
-    print(f"\n[5/6] Embedding {len(chunks)} chunks...")
-    matrix, chunks = build_index(chunks, cfg.embeddings, cache_path=cache_dir / cfg.paths.embedding_matrix_npz)
     embedder = build_embedder(cfg.embeddings, role="index")
+    print(f"\n[5/6] Embedding {len(chunks)} chunks...")
+    matrix, chunks = build_index(chunks, cfg.embeddings, embedder=embedder, cache_path=cache_dir / cfg.paths.embedding_matrix_npz)
     reranker = Reranker(cfg.embeddings.reranker_model, device=cfg.embeddings.device)
 
     if (output_dir / cfg.paths.retriever_config_json).exists():
